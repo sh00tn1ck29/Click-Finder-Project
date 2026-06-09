@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Finder Stats</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+      integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="header header--bg">
+      <div class="header__text header--size">ClickFinder</div>
+    </header>
+    <div id="linear-progress" class="hidden">
+      <div class="bar"></div>
+    </div>
+
+    <main class="stats">
+      <div class="container">
+        <nav class="crumbs stats__crumbs">
+          <a href="../index.html" class="crumbs__link">Main page</a>
+          <span class="crumbs__sep">&gt;</span>
+          <span class="crumbs__current">User statistics</span>
+        </nav>
+
+        <h1 class="stats__title">Users statistics</h1>
+
+        <div class="table-holder">
+          <table class="grid">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>IP address</th>
+                <th>Total clicks</th>
+                <th>Total page views</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="pager stats__pager" id="pagination"></div>
+      </div>
+    </main>
+
+    <footer class="footer footer--bg">
+      <section class="footer__bottom footer__bottom--size">
+        <p class="footer__logo logo footer--size">ClickFinder</p>
+        <p class="footer__rights">All rights reserved by ThemeTags</p>
+        <p class="footer__copyright">Copyrights © 2025</p>
+      </section>
+    </footer>
+    <script src="../src/scripts/stats.js" type="module"></script>
+  </body>
+</html>
