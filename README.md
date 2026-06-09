@@ -1,6 +1,6 @@
 # Click-Finder-Project
 
-### [Live Demo](https://sh00tn1ck29.github.io/Click-Finder-Project/.html)
+### [Live Demo](https://sh00tn1ck29.github.io/Click-Finder-Project.html)
 
 An analytical dashboard application designed to track and display website user activity statistics. The project integrates with an external REST API to fetch user data and performance metrics dynamically, presenting them in an optimized, interactive table.
 
