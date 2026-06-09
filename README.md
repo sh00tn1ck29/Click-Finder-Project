@@ -1,26 +1,39 @@
 # Click-Finder-Project
 
+### [Live Demo](https://sh00tn1ck29.github.io/Click-Finder-Project/users/stats.html)
 
-### [Project link](https://sh00tn1ck29.github.io/price-cards-layout/)
+An analytical dashboard application designed to track and display website user activity statistics. The project integrates with an external REST API to fetch user data and performance metrics dynamically, presenting them in an optimized, interactive table.
 
-The project features a fully responsive design optimized for various screen sizes:
+---
 
-Desktop: 1400px and above.
+###  Key Features
 
-Tablet: From 480px up to 1400px.
+- **Dynamic Data Hydration:** Fetches a comprehensive user directory and merges it with individual statistical metrics (total clicks and page views) on the fly via aggregate asynchronous API requests.
+- **Advanced Pagination UI:** Fully interactive custom pagination complete with dynamic ellipses (`...`) for large data sets, absolute first/last page jumping, and functional SVG navigation arrows.
+- **Asynchronous UX Lifecycle:** Implementation of a global `Linear Progress` loading bar beneath the header to prevent layout shifting and visually notify users during API fetch states.
+- **Responsive & Pixel Perfect:** Crafted strictly following Figma design layouts using a Mobile-First pipeline. Responsive adjustments handle everything from mobile screens up to wide desktops.
 
-Mobile: 320px to 480px.
-Built using a  Mobile-First approach with custom SASS mixins for breakpoint management.
+---
 
-### The tech stack is:
+###  Tech Stack
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5) 
-- [CSS3](https://en.wikipedia.org/wiki/CSS)
-- [Flexbox](https://en.wikipedia.org/wiki/Flexbox)
-- [Sass (Scss)](https://sass-lang.com/)
-- [BEM methodology](https://en.bem.info/methodology/)
-- [JS]([https://en.bem.info/methodology/](https://pl.wikipedia.org/wiki/JavaScript))
+- **Markup:** [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML) (Semantic structure, table architectures)
+- **Styling:** [Sass (SCSS)](https://sass-lang.com/) (Modular architecture, custom mixins for responsive layouts)
+- **Methodology:** [BEM Class Naming](https://en.bem.info/methodology/) (Block-Element-Modifier for scalable styles)
+- **Logic & Async:** [Modern JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (Native Fetch API, Promises lifecycle management, advanced Array mapping/reducing)
 
-### Author:
+---
 
-- Maksym Shavryhin
+###  Breakpoint Management
+
+The interface is completely fluid and handles responsive layouts gracefully across three main viewports managed by custom SASS mixins:
+
+- **Desktop:** `1400px` and above (Full expansive dataset views).
+- **Tablet:** From `480px` up to `1400px` (Horizontal overflow container optimization for full data accessibility).
+- **Mobile:** From `320px` to `480px` (Compact structural views optimized for smaller touch-screens).
+
+---
+
+###  Author
+
+- **Maksym Shavryhin** — *Main Developer* ([GitHub Profile](https://github.com/sh00tn1ck29))
