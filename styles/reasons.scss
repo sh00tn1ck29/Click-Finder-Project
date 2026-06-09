@@ -1,0 +1,110 @@
+@use 'variables.scss' as *;
+@use 'breakpoints.scss' as *;
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 128px;
+
+  &__question {
+    margin-inline: auto;
+    font-size: 18px;
+    text-align: center;
+    line-height: normal;
+    color: $color-black;
+    max-width: 462px;
+
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  &__strong {
+    @include desktop {
+      font-size: 32px;
+      font-weight: $bold-weight;
+      line-height: normal;
+    }
+  }
+
+  &__paragraph {
+    margin-inline: 15px;
+    max-width: 780px;
+    font-size: 16px;
+    text-align: center;
+    color: $grey-color;
+
+    @include tablet {
+      margin: 24px auto 40px auto;
+      font-size: 20px;
+    }
+
+    @include desktop {
+      width: 780px;
+      font-style: normal;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 25px;
+    margin: 0;
+    padding: 0;
+
+    @include desktop {
+      flex-direction: row;
+      column-gap: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    height: 250px;
+    border-radius: 32px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.16);
+
+    @include tablet {
+      width: 380px;
+      height: 323px;
+    }
+  }
+
+  &__icon {
+    margin-top: 48px;
+    width: 106px;
+    height: 96px;
+  }
+
+  &__title {
+    font-size: 20px;
+    color: $color-black;
+    margin: 20px 0px 0px 0px;
+
+    @include tablet {
+      margin: 40px 0px 16px 0px;
+      font-size: 24px;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    text-align: center;
+    color: $grey-color;
+
+    @include tablet {
+      font-size: 20px;
+      width: 316px;
+    }
+
+    @include desktop {
+      margin: 0px 0px 48px 0px;
+      font-size: 16px;
+    }
+  }
+}
