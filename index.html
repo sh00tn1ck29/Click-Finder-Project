@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image" href="src/img/favicon.png" />
+    <link rel="icon" type="image" href="public/images/favicon.svg" />
     <title>Click Finder Project</title>
     <link
       rel="stylesheet"
@@ -14,26 +14,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="header__text">
-        <p class="header__logo logo">ClickFinder</p>
-        <h3 class="header__headline">
-          <strong>Brainstorming</strong> for desired perfect Usability
-        </h3>
-        <p class="header__description">
-          Our design projects are fresh and simple and will benefit your
-          business greatly. Learn more about our work!
-        </p>
-        <a class="header__btn button" href="users/stats.html">Views Stats</a>
-      </div>
-      <img src="src/img/headerPhonePng.png" class="header__photo" />
-    </header>
+    <div class="container">
+      <header class="header">
+        <div class="header__text">
+          <p class="header__logo logo">ClickFinder</p>
+          <h3 class="header__headline">
+            <strong>Brainstorming</strong> for desired perfect Usability
+          </h3>
+          <p class="header__description">
+            Our design projects are fresh and simple and will benefit your
+            business greatly. Learn more about our work!
+          </p>
+          <a class="header__btn button" href="users/stats/stats.html"
+            >Views Stats</a
+          >
+        </div>
+        <img src="public/images/mobile.svg" class="header__photo" />
+      </header>
+    </div>
+
     <section class="reasons">
       <p class="reasons__question">
         Why
@@ -46,21 +51,21 @@
       </p>
       <ul class="reasons__list">
         <li class="reasons__item card">
-          <img class="reasons__icon" src="src/img/cleanDesign.png" />
+          <img class="reasons__icon" src="public/images/cleanDesign.png" />
           <h3 class="reasons__title">Clean Design</h3>
           <p class="reasons__description">
             Increase sales by showing true dynamics of your website.
           </p>
         </li>
         <li class="reasons__item card">
-          <img class="reasons__icon" src="src/img/secureData.png" />
+          <img class="reasons__icon" src="public/images/secureData.png" />
           <h3 class="reasons__title">Secure Data</h3>
           <p class="reasons__description">
             Build your online store’s trust using Social Proof & Urgency.
           </p>
         </li>
         <li class="reasons__item card">
-          <img class="reasons__icon" src="src/img/RetinaReady.png" />
+          <img class="reasons__icon" src="public/images/RetinaReady.png" />
           <h3 class="reasons__title">Retina Ready</h3>
           <p class="reasons__description">
             Realize importance of social proof in customer’s purchase decision.
@@ -87,3 +92,4 @@
     <script src="src/scripts/index.js" type="module"></script>
   </body>
 </html>
+
