@@ -1,8 +1,40 @@
-import { fetchAllUsersStats } from './api.js';
+import { fetchAllUsersStats } from '../common/api.js';
 import { toggleLoader } from './dom.js';
 
 const tableBody = document.querySelector('#table-body');
 const paginationContainer = document.querySelector('#pagination');
+
+const getPaginationRange = (currentPage, totalPages) => {
+  const delta = 2;
+  const range = [];
+
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 ||
+      i === totalPages ||
+      (i >= currentPage - delta && i <= currentPage + delta)
+    ) {
+      range.push(i);
+    }
+  }
+
+  const result = [];
+  let l;
+
+  for (let i of range) {
+    if (l) {
+      if (i - l === 2) {
+        result.push(l + 1);
+      } else if (i - l > 2) {
+        result.push('...');
+      }
+    }
+    result.push(i);
+    l = i;
+  }
+
+  return result;
+};
 
 export const renderPagination = (
   totalUsers,
@@ -28,21 +60,30 @@ export const renderPagination = (
   });
   paginationContainer.append(prevArrow);
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageButton = document.createElement('button');
-    pageButton.textContent = i;
-    pageButton.classList.add('pager__button');
+  const pageRange = getPaginationRange(currentPage, totalPages);
 
-    if (i === currentPage) {
-      pageButton.classList.add('pager__button--active');
+  pageRange.forEach((page) => {
+    if (page === '...') {
+      const dotsSpan = document.createElement('span');
+      dotsSpan.textContent = '...';
+      dotsSpan.classList.add('pager__dots');
+      paginationContainer.append(dotsSpan);
+    } else {
+      const pageButton = document.createElement('button');
+      pageButton.textContent = page;
+      pageButton.classList.add('pager__button');
+
+      if (page === currentPage) {
+        pageButton.classList.add('pager__button--active');
+      }
+
+      pageButton.addEventListener('click', () => {
+        if (currentPage !== page) onPageChange(page);
+      });
+
+      paginationContainer.append(pageButton);
     }
-
-    pageButton.addEventListener('click', () => {
-      if (currentPage !== i) onPageChange(i);
-    });
-
-    paginationContainer.append(pageButton);
-  }
+  });
 
   const nextArrow = document.createElement('button');
   nextArrow.classList.add('pager__arrow');
