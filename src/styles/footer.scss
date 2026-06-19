@@ -1,5 +1,5 @@
-@use 'variables.scss' as *;
-@use 'breakpoints.scss' as *;
+@use '../common/variables.scss' as *;
+@use '../common/breakpoints.scss' as *;
 
 .footer {
   display: flex;
@@ -54,7 +54,6 @@
     font-size: 15px;
     margin: 4px 3px 4px 0px;
     height: 50px;
-    font-size: 15px;
     text-align: center;
     background-color: $color-blue;
     color: $white-color;
@@ -77,10 +76,9 @@
     }
 
     @include desktop {
-      margin: 15px 130px 21px 130px;
-    }
-
-    @include desktop {
+      min-width: 1440px;
+      margin: 15px auto 21px auto;
+      padding-inline: 130px;
       height: 57px;
     }
   }
@@ -117,3 +115,4 @@
     line-height: 39px;
   }
 }
+
