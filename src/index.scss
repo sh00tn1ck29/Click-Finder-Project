@@ -1,0 +1,30 @@
+@use 'common/variables.scss' as *;
+@use 'common/breakpoints.scss' as *;
+@use 'styles/header.scss';
+@use 'styles/reasons.scss';
+@use 'styles/footer.scss';
+@use 'stats-page';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $regular-weight;
+  font-size: 16px;
+  color: $white-color;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 8px;
+  border: none;
+}
