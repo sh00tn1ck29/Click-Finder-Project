@@ -1,4 +1,4 @@
-import { fetchUsers } from './api.js';
+import { fetchUsers } from '../common/api.js';
 import { toggleLoader } from './dom.js';
 import { renderPageData } from './render.js';
 
