@@ -1,28 +1,33 @@
 .container {
+  margin-inline: auto;
   width: 100%;
   background-image: url("public/images/header-bg.svg");
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center bottom;
   background-size: cover;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-    height: 655px;
     margin: 0 auto;
   }
 }
 @media screen and (min-width: 1440px) {
   .header {
     justify-content: start;
-    background-size: 100% 100%;
-    min-width: 1440px;
+    max-width: 1440px;
+    column-gap: 172px;
   }
 }
 .header__text {
@@ -137,7 +142,7 @@
 }
 @media screen and (min-width: 1440px) {
   .header__photo {
-    margin-left: 172px;
+    margin: 72px 155px 0 0;
     min-width: 365px;
     min-height: 583px;
   }
@@ -311,7 +316,6 @@
   font-size: 15px;
   margin: 4px 3px 4px 0px;
   height: 50px;
-  font-size: 15px;
   text-align: center;
   background-color: #3a80ba;
   color: #fff;
@@ -336,11 +340,9 @@
 }
 @media screen and (min-width: 1440px) {
   .footer__bottom {
-    margin: 15px 130px 21px 130px;
-  }
-}
-@media screen and (min-width: 1440px) {
-  .footer__bottom {
+    min-width: 1440px;
+    margin: 15px auto 21px auto;
+    padding-inline: 130px;
     height: 57px;
   }
 }
@@ -515,7 +517,7 @@ body {
   text-align: center;
   font-size: 16px;
   overflow: hidden;
-  border-right: 1px solid white;
+  border-left: 1px solid white;
 }
 .grid th {
   text-align: center;
@@ -653,6 +655,8 @@ body {
 }
 
 .footer--bg {
+  display: flex;
+  align-items: center;
   padding: 0;
   background-image: none;
   background-color: #1c3b55;
@@ -668,10 +672,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .footer__bottom--size {
-    margin: 14px 130px;
-    padding: 0;
-    height: 29px;
-    text-align: center;
+    margin: 0;
   }
 }
 .footer__rights--size {
