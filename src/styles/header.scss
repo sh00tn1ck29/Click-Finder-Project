@@ -1,29 +1,35 @@
-@use 'variables.scss' as *;
-@use 'breakpoints.scss' as *;
+@use '../common/variables.scss' as *;
+@use '../common/breakpoints.scss' as *;
 
 .container {
+  margin-inline: auto;
   width: 100%;
   background-image: url('public/images/header-bg.svg');
+  background-size: 100% auto;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center bottom;
   background-size: cover;
+
+  display: flex;
+  justify-content: center;
 }
 
 .header {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 
   @include tablet {
     flex-direction: row;
-    height: 655px;
     margin: 0 auto;
   }
 
   @include desktop {
     justify-content: start;
-    background-size: 100% 100%;
-    min-width: 1440px;
+    max-width: 1440px;
+    column-gap: 172px;
   }
 
   &__text {
@@ -133,7 +139,7 @@
     }
 
     @include desktop {
-      margin-left: 172px;
+      margin: 72px 155px 0 0;
       min-width: 365px;
       min-height: 583px;
     }
