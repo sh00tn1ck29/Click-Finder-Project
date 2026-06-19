@@ -1,5 +1,5 @@
-@use 'variables.scss' as *;
-@use 'breakpoints.scss' as *;
+@use '../common/variables.scss' as *;
+@use '../common/breakpoints.scss' as *;
 
 .reasons {
   display: flex;
@@ -116,3 +116,4 @@
     }
   }
 }
+
