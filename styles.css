@@ -395,10 +395,24 @@ body {
   display: flex;
   align-items: center;
   min-height: 72px;
-  width: 100%;
+  min-width: 100%;
   background-image: none;
   background-color: #3a80ba;
   background-repeat: no-repeat;
+}
+.header__container {
+  width: 1440px;
+  margin-inline: auto;
+}
+.header__bottom {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .header__bottom {
+    margin: 0;
+  }
 }
 .header--size {
   margin: 10px 0px 13px 15px;
@@ -406,7 +420,8 @@ body {
 }
 @media screen and (min-width: 768px) {
   .header--size {
-    margin: 10px 0px 13px 130px;
+    margin: 0;
+    padding: 10px 0px 13px 130px;
     font-size: 40px;
   }
 }
@@ -571,8 +586,6 @@ body {
   overflow-y: hidden;
   overflow-x: hidden;
   max-width: 239px;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
 }
 .grid td:nth-child(4) {
