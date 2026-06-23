@@ -36,16 +36,9 @@ const getPaginationRange = (currentPage, totalPages) => {
   return result;
 };
 
-export const renderPagination = (
-  totalUsers,
-  limit,
-  currentPage,
-  onPageChange,
-) => {
+export const renderPagination = (totalPages, currentPage, onPageChange) => {
   if (!paginationContainer) return;
   paginationContainer.innerHTML = '';
-
-  const totalPages = Math.ceil(totalUsers / limit) || 1;
 
   const prevArrow = document.createElement('button');
   prevArrow.classList.add('pager__arrow');
@@ -100,16 +93,11 @@ export const renderPagination = (
 };
 
 export const renderPageData = (
-  cachedUsers,
+  usersForPage,
+  totalPages,
   currentPage,
-  limit,
   onPageChange,
 ) => {
-  toggleLoader(true);
-
-  const startIndex = (currentPage - 1) * limit;
-  const endIndex = startIndex + limit;
-  const usersForPage = cachedUsers.slice(startIndex, endIndex);
   const pageUserIds = usersForPage.map((u) => u.id);
 
   fetchAllUsersStats(pageUserIds).then((allStats) => {
@@ -135,7 +123,7 @@ export const renderPageData = (
       tableBody.append(row);
     });
 
-    renderPagination(cachedUsers.length, limit, currentPage, onPageChange);
+    renderPagination(totalPages, currentPage, onPageChange);
     toggleLoader(false);
   });
 };
