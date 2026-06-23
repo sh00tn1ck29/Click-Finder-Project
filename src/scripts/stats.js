@@ -4,23 +4,25 @@ import { renderPageData } from './render.js';
 
 let currentPage = 1;
 const limit = 16;
-let cachedUsers = [];
 
-const handlePageChange = (newPage) => {
-  currentPage = newPage;
-  renderPageData(cachedUsers, currentPage, limit, handlePageChange);
-};
-
-const init = () => {
+const loadPageData = (page) => {
   toggleLoader(true);
-  fetchUsers().then((users) => {
-    cachedUsers = users;
-    if (cachedUsers.length > 0) {
-      renderPageData(cachedUsers, currentPage, limit, handlePageChange);
+  fetchUsers(page, limit).then(({ users, totalPages }) => {
+    if (users.length > 0) {
+      renderPageData(users, totalPages, page, handlePageChange);
     } else {
       toggleLoader(false);
     }
   });
+};
+
+const handlePageChange = (newPage) => {
+  currentPage = newPage;
+  loadPageData(currentPage);
+};
+
+const init = () => {
+  loadPageData(currentPage);
 };
 
 init();
