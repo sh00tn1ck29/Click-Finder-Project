@@ -18,10 +18,25 @@ body {
     display: flex;
     align-items: center;
     min-height: 72px;
-    width: 100%;
+    min-width: 100%;
     background-image: none;
     background-color: $color-blue;
     background-repeat: no-repeat;
+  }
+
+  &__container {
+    width: 1440px;
+    margin-inline: auto;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include tablet {
+      margin: 0;
+    }
   }
 
   &--size {
@@ -29,8 +44,8 @@ body {
     font-size: 40px;
 
     @include tablet {
-      margin: 10px 0px 13px 130px;
-
+      margin: 0;
+      padding: 10px 0px 13px 130px;
       font-size: 40px;
     }
   }
@@ -167,7 +182,6 @@ body {
 
     &:first-child {
       width: 64px;
-
       border-top-left-radius: 10px;
     }
 
@@ -181,11 +195,8 @@ body {
 
     &:nth-child(4) {
       width: 239px;
-
       white-space: nowrap;
-
       overflow: hidden;
-
       text-overflow: ellipsis;
     }
 
@@ -203,7 +214,6 @@ body {
 
     &:last-child {
       border-top-right-radius: 10px;
-
       width: 181px;
     }
   }
@@ -220,13 +230,10 @@ body {
     overflow-y: hidden;
     overflow-x: hidden;
     max-width: 239px;
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 
     &:nth-child(4) {
       text-align: start;
-
       padding-inline: 24px;
     }
 
