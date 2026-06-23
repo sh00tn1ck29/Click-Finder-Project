@@ -325,6 +325,8 @@
     padding: 0;
     min-width: 176px;
     height: 56px;
+    padding-top: 1px;
+    letter-spacing: 0.5px;
     line-height: normal;
   }
 }
@@ -721,3 +723,4 @@ body {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
