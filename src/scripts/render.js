@@ -5,35 +5,35 @@ const tableBody = document.querySelector('#table-body');
 const paginationContainer = document.querySelector('#pagination');
 
 const getPaginationRange = (currentPage, totalPages) => {
-  const delta = 2;
   const range = [];
 
-  for (let i = 1; i <= totalPages; i++) {
-    if (
-      i === 1 ||
-      i === totalPages ||
-      (i >= currentPage - delta && i <= currentPage + delta)
-    ) {
-      range.push(i);
-    }
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) range.push(i);
+    return range;
   }
 
-  const result = [];
-  let l;
-
-  for (let i of range) {
-    if (l) {
-      if (i - l === 2) {
-        result.push(l + 1);
-      } else if (i - l > 2) {
-        result.push('...');
-      }
-    }
-    result.push(i);
-    l = i;
+  if (currentPage <= 4) {
+    for (let i = 1; i <= 5; i++) range.push(i);
+    range.push('...');
+    range.push(totalPages);
+    return range;
   }
 
-  return result;
+  if (currentPage >= totalPages - 3) {
+    range.push(1);
+    range.push('...');
+    for (let i = totalPages - 4; i <= totalPages; i++) range.push(i);
+    return range;
+  }
+
+  range.push(1);
+  range.push('...');
+  range.push(currentPage - 1);
+  range.push(currentPage);
+  range.push(currentPage + 1);
+  range.push('...');
+  range.push(totalPages);
+  return range;
 };
 
 export const renderPagination = (totalPages, currentPage, onPageChange) => {
@@ -57,9 +57,9 @@ export const renderPagination = (totalPages, currentPage, onPageChange) => {
 
   pageRange.forEach((page) => {
     if (page === '...') {
-      const dotsSpan = document.createElement('span');
+      const dotsSpan = document.createElement('button');
       dotsSpan.textContent = '...';
-      dotsSpan.classList.add('pager__dots');
+      dotsSpan.classList.add('pager__button');
       paginationContainer.append(dotsSpan);
     } else {
       const pageButton = document.createElement('button');
