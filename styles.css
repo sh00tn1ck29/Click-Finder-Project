@@ -391,6 +391,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  position: relative;
 }
 
 .header--bg {
@@ -487,12 +488,14 @@ body {
 }
 
 #linear-progress {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  z-index: 10;
   width: 100%;
   height: 4px;
   background-color: #e0e0e0;
   overflow: hidden;
-  position: relative;
-  margin-bottom: 10px;
 }
 
 #linear-progress .bar {
@@ -617,7 +620,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .pager__item, .pager__arrow {
   display: flex;
@@ -658,15 +661,25 @@ body {
 }
 
 .pager__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0 0 0;
   width: 48px;
   height: 48px;
+  text-align: center;
   border-radius: 8px;
   background-color: #fff;
   border: 2px solid #f1f1f1;
+  cursor: pointer;
 }
 .pager__button--active {
   background-color: #3a80ba;
   color: #fff;
+  border: none;
+}
+.pager__button:hover {
+  border: 1px solid #3a80ba;
 }
 
 .footer--bg {
@@ -720,7 +733,7 @@ body {
   font-weight: 400;
   border-radius: 8px;
   border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=styles.css.map */
-
