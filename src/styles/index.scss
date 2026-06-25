@@ -1,0 +1,37 @@
+@use '../common/scss/variables.scss' as *;
+@use '../common/scss/breakpoints.scss' as *;
+@use 'header.scss';
+@use 'reasons.scss';
+@use 'footer.scss';
+@use 'base.scss';
+@use 'components/stats-header';
+@use 'components/crumbs';
+@use 'components/stats-table';
+@use 'components/loader';
+@use 'components/pagination';
+@use 'components/stats-footer';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $regular-weight;
+  font-size: 16px;
+  color: $white-color;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
