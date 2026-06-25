@@ -1,6 +1,5 @@
-import { fetchUsers } from '../common/api.js';
-import { toggleLoader } from './dom.js';
-import { renderPageData } from './render.js';
+import { fetchUsers } from '../common/gateways/api.js';
+import { renderPageData, toggleLoader } from './StatisticsTable/index.js';
 
 let currentPage = 1;
 const limit = 16;
@@ -34,3 +33,4 @@ const init = () => {
 };
 
 init();
+
