@@ -1,0 +1,33 @@
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  height: 19px;
+  font-size: 16px;
+
+  &__link {
+    line-height: 19px;
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #3a80ba;
+      text-decoration: underline;
+    }
+  }
+
+  &__sep {
+    margin: -2px 7px 0 6px;
+    font-size: 24px;
+    line-height: 19px;
+    color: #cccccc;
+    user-select: none;
+  }
+
+  &__current {
+    line-height: 19px;
+    color: #3a80ba;
+    font-weight: 400;
+  }
+}
