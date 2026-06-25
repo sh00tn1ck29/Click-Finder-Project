@@ -1,0 +1,50 @@
+@use '../common/scss/variables.scss' as *;
+@use '../common/scss/breakpoints.scss' as *;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  position: relative;
+}
+
+.stats {
+  margin-inline: auto;
+  width: 100%;
+  padding: 0 10px 24px 10px;
+
+  @include desktop {
+    padding-inline: 0;
+    margin-inline: auto;
+    max-width: 1180.5px;
+    background-color: $white-color;
+    font-family: 'Montserrat', sans-serif;
+    flex-grow: 1;
+  }
+
+  &__crumbs {
+    max-width: 1180.5px;
+    height: 19px;
+    margin: 17px auto 26px auto;
+  }
+
+  &__title {
+    margin-inline: auto;
+    max-width: 1180.5px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111111;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
