@@ -1,17 +1,7 @@
-import { fetchAllUsersStats } from '../../common/gateways/api.js';
+import { fetchAllUsersStats } from '../../common/gateways/index.js';
 import { renderPagination } from '../Pagination/index.js';
 
 const tableBody = document.querySelector('#table-body');
-const loader = document.querySelector('#linear-progress');
-
-export const toggleLoader = (show) => {
-  if (!loader) return;
-  if (show) {
-    loader.classList.remove('hidden');
-  } else {
-    loader.classList.add('hidden');
-  }
-};
 
 export const renderPageData = (
   usersForPage,
@@ -25,8 +15,10 @@ export const renderPageData = (
     if (!tableBody) return;
     tableBody.innerHTML = '';
 
+    const safeStats = Array.isArray(statsList) ? statsList : [];
+
     usersForPage.forEach((user) => {
-      const userStatsRecords = statsList.filter(
+      const userStatsRecords = safeStats.filter(
         (el) => Number(el.user_id || el.userId || el.id) === Number(user.id),
       );
 
@@ -54,6 +46,5 @@ export const renderPageData = (
     });
 
     renderPagination(totalPages, currentPage, onPageChange);
-    toggleLoader(false);
   });
 };
