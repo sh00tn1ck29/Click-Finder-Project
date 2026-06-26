@@ -7,16 +7,13 @@ export const fetchUsers = (page, limit) => {
       res.ok ? res.json() : Promise.reject('Ошибка пользователей'),
     )
     .then((result) => {
-      const usersList = result.data || (Array.isArray(result) ? result : []);
-      const total = result.totalPages || 63;
       return {
-        users: usersList,
-        totalPages: total,
+        users: result.data,
+        totalPages: result.totalPages,
       };
     })
     .catch((err) => {
       console.error(err);
-      return { users: [], totalPages: 63 };
     });
 };
 
@@ -24,10 +21,12 @@ export const fetchAllUsersStats = (idsArray) => {
   const idsQuery = idsArray.join(',');
 
   return fetch(`${STATS_API}?userIds=${idsQuery}`)
-    .then((res) => (res.ok ? res.json() : []))
-    .then((result) => result.data || result || [])
+    .then((res) => (res.ok ? res.json() : Promise.reject('Ошибка статистики')))
+    .then((result) => {
+      return result;
+    })
     .catch((err) => {
       console.error(err);
-      return [];
     });
 };
+
