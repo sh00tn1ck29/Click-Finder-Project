@@ -50,4 +50,3 @@ const init = () => {
 };
 
 init();
-
