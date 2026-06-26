@@ -1,14 +1,31 @@
-import { fetchUsers } from '../common/gateways/api.js';
-import { renderPageData, toggleLoader } from './StatisticsTable/index.js';
+import { fetchUsers } from '../common/gateways/index.js';
+import { renderPageData } from './StatisticsTable/index.js';
+
+const loader = document.querySelector('#linear-progress');
+
+export const toggleLoader = (show) => {
+  if (!loader) return;
+  if (show) {
+    loader.classList.remove('hidden');
+  } else {
+    loader.classList.add('hidden');
+  }
+};
 
 let currentPage = 1;
 const limit = 16;
 
 const loadPageData = (page) => {
   toggleLoader(true);
-  fetchUsers(page, limit).then(({ users, totalPages }) => {
-    if (users.length > 0) {
-      renderPageData(users, totalPages, page, handlePageChange);
+  fetchUsers(page, limit).then((response) => {
+    if (response && response.users && response.users.length > 0) {
+      renderPageData(
+        response.users,
+        response.totalPages,
+        page,
+        handlePageChange,
+      );
+      toggleLoader(false);
     } else {
       toggleLoader(false);
     }
