@@ -8,12 +8,13 @@ export const fetchUsers = (page, limit) => {
     )
     .then((result) => {
       return {
-        users: result.data,
-        totalPages: result.totalPages,
+        users: result.data || [],
+        totalPages: result.totalPages || result.total_pages || 63,
       };
     })
     .catch((err) => {
       console.error(err);
+      return { users: [], totalPages: 63 };
     });
 };
 
@@ -23,10 +24,10 @@ export const fetchAllUsersStats = (idsArray) => {
   return fetch(`${STATS_API}?userIds=${idsQuery}`)
     .then((res) => (res.ok ? res.json() : Promise.reject('Ошибка статистики')))
     .then((result) => {
-      return result;
+      return result || [];
     })
     .catch((err) => {
       console.error(err);
+      return [];
     });
 };
-
