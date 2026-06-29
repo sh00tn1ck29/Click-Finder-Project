@@ -22,15 +22,17 @@ const createArrowButton = (direction, isDisabled, onClick) => {
 };
 
 export const renderPagination = (totalPages, currentPage, onPageChange) => {
-  if (!paginationContainer) return;
+  const total = Number(totalPages);
+  const current = Number(currentPage);
+
   paginationContainer.innerHTML = '';
 
-  const prevArrow = createArrowButton('left', currentPage === 1, () => {
-    if (currentPage > 1) onPageChange(currentPage - 1);
+  const prevArrow = createArrowButton('left', current === 1, () => {
+    onPageChange(current - 1);
   });
   paginationContainer.append(prevArrow);
 
-  const pageRange = getPaginationRange(currentPage, totalPages);
+  const pageRange = getPaginationRange(current, total);
 
   pageRange.forEach((page) => {
     const pageButton = document.createElement('button');
@@ -40,22 +42,19 @@ export const renderPagination = (totalPages, currentPage, onPageChange) => {
     if (page === '...') {
       paginationContainer.append(pageButton);
     } else {
-      if (page === currentPage) {
+      const pageNumber = Number(page);
+      if (pageNumber === current) {
         pageButton.classList.add('pagination__button--active');
       }
       pageButton.addEventListener('click', () => {
-        if (currentPage !== page) onPageChange(page);
+        if (current !== pageNumber) onPageChange(pageNumber);
       });
       paginationContainer.append(pageButton);
     }
   });
 
-  const nextArrow = createArrowButton(
-    'right',
-    currentPage === totalPages,
-    () => {
-      if (currentPage < totalPages) onPageChange(currentPage + 1);
-    },
-  );
+  const nextArrow = createArrowButton('right', current === total, () => {
+    onPageChange(current + 1);
+  });
   paginationContainer.append(nextArrow);
 };
